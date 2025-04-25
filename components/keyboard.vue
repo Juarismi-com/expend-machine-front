@@ -14,7 +14,11 @@
 
     <hr class="mt-6">
     <div class="max-w-xs mx-auto mt-6 p-4" v-if="product != ''">
-        <h3 class="text-xl">Producto: {{ product.nombre }}<br/> Precio: {{ product.precio }}</h3>
+        <h3 class="text-xl">
+            Producto: {{ product.nombre }}
+            <br/> Precio: {{ product.precio }}
+            <br/> Slot: {{ product.slot }}
+        </h3>
     </div>
     <div class="max-w-xs mx-auto mt-6 p-4" v-if="error != ''">
         <h3 class="text-xl">{{  error  }}</h3>
