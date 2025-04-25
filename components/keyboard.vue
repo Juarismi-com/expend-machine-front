@@ -45,17 +45,23 @@
   const deleteLast = () => {
     product.value = ''
     error.value = ''
-    input.value = input.value.slice(0, -1)
+    input.value = input.value.slice(0, -1) 
   }
   
   const confirmInput = async () => {
     const lastInputValue = input.value;
 
     try {
-        error.value = ''
-        const response = await axios.get(`http://localhost:5001/signal/${input.value}`);
-        product.value = response?.data
-        input.value = ''
+       
+
+        if (lastInputValue == '')
+             error.value = 'Por favor seleccione un slot'
+        else {
+            error.value = ''
+            const response = await axios.get(`http://localhost:5001/signal/${lastInputValue}`);
+            product.value = response?.data
+            input.value = ''
+        }
     } catch (e) {
         error.value = 'No se encontro el producto en el slot ' + lastInputValue
         input.value = ''
