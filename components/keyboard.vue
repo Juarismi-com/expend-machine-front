@@ -17,7 +17,7 @@
         <h3 class="text-xl">Producto: {{ product.nombre }}<br/> Precio: {{ product.precio }}</h3>
     </div>
     <div class="max-w-xs mx-auto mt-6 p-4" v-if="error != ''">
-        <h3>{{  error  }}</h3>
+        <h3 class="text-xl">{{  error  }}</h3>
     </div>
 </template>
   
@@ -45,12 +45,16 @@
   }
   
   const confirmInput = async () => {
+    const lastInputValue = input.value;
+
     try {
         error.value = ''
         const response = await axios.get(`http://localhost:5001/signal/${input.value}`);
         product.value = response?.data
+        input.value = ''
     } catch (e) {
-        error.value = 'No se encontro el producto'
+        error.value = 'No se encontro el producto en el slot ' + lastInputValue
+        input.value = ''
         console.log(e);
     }
   }
