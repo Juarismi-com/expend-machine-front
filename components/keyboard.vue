@@ -58,7 +58,7 @@
              error.value = 'Por favor seleccione un slot'
         else {
             error.value = ''
-            const response = await axios.get(`http://localhost:5001/signal/${lastInputValue}`);
+            const response = await axios.get(`http://192.168.100.14:5001/signal/${lastInputValue}`);
             product.value = response?.data
             input.value = ''
         }
