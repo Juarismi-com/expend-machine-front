@@ -52,7 +52,7 @@
     const lastInputValue = input.value;
 
     try {
-        await axios.post(`http://192.168.100.15:3000/venta-qr`, {
+        await axios.post(`http://192.168.100.15:3000/pos/venta-qr`, {
             facturaNro: 99,
             monto: 100,
             montoVuelto:0
