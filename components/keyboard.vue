@@ -52,7 +52,11 @@
     const lastInputValue = input.value;
 
     try {
-       
+        await axios.post(`http://192.168.100.15:3000/venta-qr`, {
+            facturaNro: 99,
+            monto: 100,
+            montoVuelto:0
+        });
 
         if (lastInputValue == '')
              error.value = 'Por favor seleccione un slot'
